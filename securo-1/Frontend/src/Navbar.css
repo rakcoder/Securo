@@ -1,0 +1,274 @@
+/* Modern, stylish Navbar - Updated for 2025 */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --secondary-color: #2c3e50;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --animation-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Commented out old styles */
+/* header{
+    padding: 0;
+    width: 100%;
+    height: 80px;
+    background: rgb(108, 108, 235);
+  }
+  header nav{
+    width: 1200px;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header nav .left{
+    color: white;
+  }
+  
+  header nav .right ul{
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+  
+  header nav .right ul li{
+    font-size: 19px;
+    text-transform: capitalize;
+    color: white;
+    cursor: pointer;
+  
+  }
+  
+  
+  header nav .right ul li a{
+    text-decoration: none;
+    color: white;
+  
+  } */
+
+.navbar {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-nav);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.7rem 3rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.brand-highlight {
+  color: var(--primary-color);
+  position: relative;
+}
+
+.brand-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(52, 152, 219, 0.1);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  margin-right: 2rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s var(--animation-timing);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.nav-button-icon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-button:hover .nav-button-icon {
+  transform: translateX(3px);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.nav-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 1rem;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  
+  .navbar.scrolled {
+    padding: 0.7rem 2rem;
+  }
+  
+  .nav-link {
+    margin-right: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--bg-white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+  
+  .navbar-links.active {
+    right: 0;
+  }
+  
+  .nav-link {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  
+  .close-menu {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  
+  .navbar.scrolled {
+    padding: 0.6rem 1rem;
+  }
+  
+  .navbar-brand h1 {
+    font-size: 1.5rem;
+  }
+  
+  .nav-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

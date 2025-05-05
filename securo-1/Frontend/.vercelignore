@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+/coverage
+__tests__
+*.test.js
+*.spec.js
+
+# Source control
+.git
+.gitignore
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.eslintcache
+.vscode/
+.idea/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build process
+/public/*.map
+
+# Unnecessary files for deployment
+README.md
+*.md
+srcFinal.zip
+sample.json

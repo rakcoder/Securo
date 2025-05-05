@@ -1,0 +1,274 @@
+.fleetManagement {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.tabsContainer {
+  display: flex;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+}
+
+.tab:hover {
+  background-color: #e0e0e0;
+}
+
+.activeTab {
+  border-bottom: 3px solid #6C63FF;
+  background-color: #fff;
+  font-weight: 700;
+}
+
+.contentContainer {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Routes Tab Styling */
+.routesTab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.routesContainer {
+  width: 30%;
+  min-width: 300px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.routeList {
+  margin-top: 20px;
+  max-height: calc(100% - 120px);
+  overflow-y: auto;
+}
+
+.routeItem {
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.routeItem:hover {
+  background-color: #eef1ff;
+}
+
+.routeItem.selected {
+  background-color: #e7e9ff;
+  border-left: 3px solid #6C63FF;
+}
+
+.routeName {
+  font-weight: 600;
+}
+
+.routeDetails {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.routeButtons {
+  margin-top: 20px;
+}
+
+.viewMapContainer {
+  flex: 1;
+  height: 100%;
+}
+
+/* Vehicles Tab Styling */
+.vehiclesTab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.vehicleDataContainer {
+  width: 30%;
+  min-width: 300px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.vehicleList {
+  margin-top: 20px;
+  max-height: calc(100% - 120px);
+  overflow-y: auto;
+}
+
+.vehicleItem {
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vehicleItem:hover {
+  background-color: #eef1ff;
+}
+
+.vehicleItem.selected {
+  background-color: #e7e9ff;
+  border-left: 3px solid #6C63FF;
+}
+
+.vehicleName {
+  font-weight: 600;
+}
+
+.vehicleDetails {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.vehicleDataMapContainer {
+  flex: 1;
+  height: 100%;
+}
+
+#vehicleMapContainer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Drivers Tab Styling */
+.driversTab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.driverDataContainer {
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.driverList {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.driverItem {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.driverItem:hover {
+  background-color: #eef1ff;
+}
+
+.driverItem.selected {
+  background-color: #e7e9ff;
+  border-left: 3px solid #6C63FF;
+}
+
+.driverName {
+  font-weight: 600;
+}
+
+.driverDetails {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.buttonsContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #6C63FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #5a52d5;
+}
+
+button.cancelButton {
+  background-color: #f44336;
+}
+
+button.cancelButton:hover {
+  background-color: #d32f2f;
+}
+
+/* Forms styling */
+.vehicleForm, .driverForm {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.vehicleForm input, .driverForm input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .routesTab, .vehiclesTab {
+    flex-direction: column;
+  }
+  
+  .routesContainer, .vehicleDataContainer {
+    width: 100%;
+    height: 40%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .viewMapContainer, .vehicleDataMapContainer {
+    height: 60%;
+  }
+  
+  .driverList {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,238 @@
+/* Modern Classic Theme for Simulation Config Panel */
+.simulation-config-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  width: 500px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  border: 1px solid #cbd5e0;
+  animation: panel-fade-in 0.3s ease-out;
+}
+
+@keyframes panel-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -55%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.config-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #1a202c;
+}
+
+.config-panel-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+.config-panel-body {
+  padding: 20px;
+  flex: 1;
+}
+
+.config-section {
+  margin-bottom: 24px;
+}
+
+.config-section h3 {
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.config-control {
+  margin-bottom: 16px;
+}
+
+.config-control label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.config-control select,
+.config-control input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+}
+
+.config-control input[type="number"] {
+  width: 80px;
+  padding: 8px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+  -moz-appearance: textfield; /* Remove default arrows in Firefox */
+  margin-right: 10px;
+}
+
+.config-control input[type="number"]::-webkit-inner-spin-button,
+.config-control input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.config-control select:focus,
+.config-control input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+}
+
+.config-control input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  outline: none;
+}
+
+.config-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #3182ce;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.config-control input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #2b6cb0;
+}
+
+.value-display {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.config-description {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #718096;
+  line-height: 1.4;
+}
+
+.config-panel-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+  border-radius: 0 0 10px 10px;
+}
+
+.save-btn {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.save-btn:hover:not(:disabled) {
+  background-color: #2b6cb0;
+}
+
+.save-btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.save-message {
+  padding: 6px 12px;
+  background-color: #c6f6d5;
+  color: #2f855a;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  animation: fade-in 0.3s ease-out;
+}
+
+.input-field {
+  width: 80px !important;
+  text-align: center;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Before the panel shows, this covers the whole screen */
+.simulation-config-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fade-in 0.3s ease-out;
+}
